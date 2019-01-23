@@ -1,6 +1,6 @@
 import "./component.css";
 import React from "react";
-import Form from "../Form.container/component";
+import Form from "../Form/component";
 
 const initialFormState = {
   firstname: "",
