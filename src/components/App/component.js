@@ -1,6 +1,11 @@
 import "./component.css";
 import React from "react";
 import Form from "../Form/component";
+import FormLabel from "../FormLabel/component";
+import FormInput from "../FormInput/component";
+import FormTextarea from "../FormTextarea/component";
+import FormRadioCheck from "../FormRadioCheck/component";
+import FormSelect from "../FormSelect/component";
 
 const initialFormState = {
   firstname: "",
@@ -25,45 +30,46 @@ class App extends React.Component {
           {({ values, handleChange, handleMultiCheck }) => (
             <form>
               <fieldset className="fieldset">
+                <legend>Enter your details</legend>
                 <div className="formControl">
-                  <label className="label" htmlFor="firstname">
+                  <FormLabel htmlFor="firstname" classNames="label">
                     Firstname
-                  </label>
-                  <input
-                    className="input"
-                    name="firstname"
-                    id="firstname"
-                    value={values.firstname}
-                    onChange={handleChange}
+                  </FormLabel>
+                  <FormInput
                     type="text"
+                    id="firstname"
+                    name="firstname"
+                    value={values.firstname}
+                    handleChange={handleChange}
+                    classNames="input"
                   />
                 </div>
 
                 <div className="formControl">
-                  <label className="label" htmlFor="address">
+                  <FormLabel htmlFor="address" classNames="label">
                     Enter your address
-                  </label>
-                  <textarea
-                    className="input"
-                    name="address"
+                  </FormLabel>
+                  <FormTextarea
                     id="address"
+                    name="address"
                     value={values.address}
-                    onChange={handleChange}
+                    handleChange={handleChange}
+                    classNames="label"
                   />
                 </div>
 
                 <div className="formControl">
-                  <input
-                    className="input"
-                    name="acceptTerms"
-                    id="acceptTerms"
-                    checked={values.acceptTerms}
-                    onChange={handleChange}
+                  <FormRadioCheck
                     type="checkbox"
+                    id="acceptTerms"
+                    name="acceptTerms"
+                    checked={values.acceptTerms}
+                    handleChange={handleChange}
+                    classNames="input"
                   />
-                  <label className="label" htmlFor="acceptTerms">
+                  <FormLabel htmlFor="acceptTerms" classNames="label-inline">
                     I accept the <a href="javascript:void(0)">Terms and Conditions</a>
-                  </label>
+                  </FormLabel>
                 </div>
               </fieldset>
 
@@ -71,18 +77,18 @@ class App extends React.Component {
                 <legend>Select the fruits you like</legend>
                 {values.fruits.map((fruit) => (
                   <div className="formControl" key={fruit.id}>
-                    <input
-                      className="input"
-                      name={fruit.name}
+                    <FormRadioCheck
+                      type="checkbox"
                       id={fruit.value}
+                      name={fruit.name}
                       value={fruit.value}
                       checked={fruit.isChecked}
-                      onChange={(event) => handleMultiCheck(event, fruit.id)}
-                      type="checkbox"
+                      handleChange={(event) => handleMultiCheck(event, fruit.id)}
+                      classNames="input"
                     />
-                    <label className="label" htmlFor={fruit.value}>
+                    <FormLabel htmlFor={fruit.value} classNames="label-inline">
                       {fruit.value}
-                    </label>
+                    </FormLabel>
                   </div>
                 ))}
               </fieldset>
@@ -90,71 +96,68 @@ class App extends React.Component {
               <fieldset className="fieldset">
                 <legend>Choose a shipping method</legend>
                 <div className="formControl">
-                  <input
-                    className="input"
-                    name="shipping"
+                  <FormRadioCheck
+                    type="radio"
                     id="overnight"
+                    name="shipping"
                     value="overnight"
-                    onChange={handleChange}
-                    type="radio"
+                    handleChange={handleChange}
+                    classNames="input"
                   />
-                  <label className="label" htmlFor="overnight">
+                  <FormLabel htmlFor="overnight" classNames="label-inline">
                     Overnight
-                  </label>
+                  </FormLabel>
                 </div>
 
                 <div className="formControl">
-                  <input
-                    className="input"
-                    name="shipping"
+                  <FormRadioCheck
+                    type="radio"
                     id="twoday"
+                    name="shipping"
                     value="twoday"
-                    onChange={handleChange}
-                    type="radio"
+                    handleChange={handleChange}
+                    classNames="input"
                   />
-                  <label className="label" htmlFor="twoday">
+                  <FormLabel htmlFor="twoday" classNames="label-inline">
                     Two day
-                  </label>
+                  </FormLabel>
                 </div>
 
                 <div className="formControl">
-                  <input
-                    className="input"
-                    name="shipping"
-                    id="ground"
-                    value="ground"
-                    onChange={handleChange}
+                  <FormRadioCheck
                     type="radio"
+                    id="ground"
+                    name="shipping"
+                    value="ground"
+                    handleChange={handleChange}
+                    classNames="input"
                   />
-                  <label className="label" htmlFor="ground">
+                  <FormLabel htmlFor="ground" classNames="label-inline">
                     Ground
-                  </label>
+                  </FormLabel>
                 </div>
               </fieldset>
 
               <fieldset className="fieldset">
                 <div className="formControl">
-                  <label className="label" htmlFor="favcity">
+                  <FormLabel htmlFor="favcity" classNames="label">
                     Choose your favorite city?
-                  </label>
-                  <select
-                    className="input"
-                    name="favcity"
+                  </FormLabel>
+                  <FormSelect
                     id="favcity"
+                    name="favcity"
                     value={values.favcity}
-                    onChange={handleChange}>
-                    <option value="Amsterdam">Amsterdam</option>
-                    <option value="Buenos Aires">Buenos Aires</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Hong Kong">Hong Kong</option>
-                    <option value="London">London</option>
-                    <option value="Los Angeles">Los Angeles</option>
-                    <option value="Moscow">Moscow</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="New York">New York</option>
-                    <option value="Sao Paulo">Sao Paulo</option>
-                    <option value="Tokyo">Tokyo</option>
-                  </select>
+                    handleChange={handleChange}
+                    classNames="input"
+                    options={[
+                      { id: 1, value: "Amsterdam", label: "Amsterdam" },
+                      { id: 2, value: "Buenos Aires", label: "Buenos Aires" },
+                      { id: 3, value: "Delhi", label: "Delhi" },
+                      { id: 4, value: "London", label: "London" },
+                      { id: 5, value: "Los Angeles", label: "Los Angeles" },
+                      { id: 6, value: "Tokyo", label: "Tokyo" },
+                    ]}
+                  />
                 </div>
               </fieldset>
             </form>

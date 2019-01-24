@@ -1,4 +1,3 @@
-import "./component.css";
 import React from "react";
 
 class Form extends React.Component {
@@ -20,6 +19,8 @@ class Form extends React.Component {
 
   handleMultiCheck = (event, id) => {
     const { name, checked } = event.target;
+    // not sure how efficient this is, or whether it breaks React
+    // ideology.
     this.setState((prevState) => {
       // selects the correct property of the components state object
       // based on the name attribute of the input targeted.
