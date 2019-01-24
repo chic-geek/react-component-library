@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SignUpForm from "../Examples/SignUpForm/component";
 import SignInForm from "../Examples/SignInForm/component";
-import ExampleForm from "../Examples/ExampleForm/component";
+import SampleForm from "../Examples/SampleForm/component";
 
 class App extends React.Component {
   render() {
@@ -20,13 +20,13 @@ class App extends React.Component {
                 <Link to="/sign-in">Sign in</Link>
               </li>
               <li>
-                <Link to="/example">Example</Link>
+                <Link to="/sample">Sample</Link>
               </li>
             </ul>
           </nav>
           <Route path="/sign-up" component={SignUpForm} />
           <Route path="/sign-in" component={SignInForm} />
-          <Route path="/example" component={ExampleForm} />
+          <Route path="/sample" component={SampleForm} />
         </React.Fragment>
       </Router>
     );

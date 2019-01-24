@@ -30,7 +30,7 @@ const favcityOptions = [
   { id: 6, value: "Tokyo", label: "Tokyo" },
 ];
 
-class ExampleForm extends React.Component {
+class SampleForm extends React.Component {
   render() {
     return (
       <FormContainer initialValues={initialFormState}>
@@ -170,4 +170,4 @@ class ExampleForm extends React.Component {
   }
 }
 
-export default ExampleForm;
+export default SampleForm;
