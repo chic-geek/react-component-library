@@ -1,6 +1,6 @@
 import React from "react";
 
-class Form extends React.Component {
+class FormContainer extends React.Component {
   state = {
     values: this.props.initialValues || {},
     errors: {},
@@ -49,4 +49,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default FormContainer;
