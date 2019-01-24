@@ -101,6 +101,7 @@ class App extends React.Component {
                     id="overnight"
                     name="shipping"
                     value="overnight"
+                    checked={values.shipping === "overnight"}
                     handleChange={handleChange}
                     classNames="input"
                   />
@@ -115,6 +116,7 @@ class App extends React.Component {
                     id="twoday"
                     name="shipping"
                     value="twoday"
+                    checked={values.shipping === "twoday"}
                     handleChange={handleChange}
                     classNames="input"
                   />
@@ -129,6 +131,7 @@ class App extends React.Component {
                     id="ground"
                     name="shipping"
                     value="ground"
+                    checked={values.shipping === "ground"}
                     handleChange={handleChange}
                     classNames="input"
                   />
