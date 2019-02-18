@@ -1,3 +1,3 @@
 # React component library
 
-A few reusable components
+A few reusable form components but ever growing.
